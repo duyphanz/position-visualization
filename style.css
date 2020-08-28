@@ -76,6 +76,7 @@ main {
   background-color: cadetblue;
 
   position: absolute;
+  z-index: 10;
   top: 200px;
   left: 100px;
 
