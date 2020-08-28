@@ -10,9 +10,10 @@ body {
 
 main {
   height: 100%;
-  
   background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
+
+/* ============ Srollbar ============ */
 
 /* width */
 ::-webkit-scrollbar {
@@ -34,16 +35,21 @@ main {
   background: #555; 
 }
 
+/* ============ End Srollbar ============ */
+
 .app__text-box {
   position: fixed;
+  width: 100%;
+  text-align: right;
   top: 110px;;
 }
 
 .app__cover {
   height: 100px;
   width: 100%;
-  background-color: azure;
+  background-color:rgba(0, 0, 0, 0.2);
   opacity: 0.5;
+  color: black;
 
   position: fixed;
   left: 50%;
@@ -51,6 +57,7 @@ main {
 }
 
 .app__cover--top {
+  text-align: right;
   top: 0;
 }
 
@@ -72,9 +79,32 @@ main {
   left: 200px;
 }
 
+.app__dragging-element {
+  width: 200px;
+  height: 100px;
+
+  background-color: cadetblue;
+
+  position: absolute;
+  top: 200px;
+}
+
+.dragging-element__vertical-line {
+  top: 0;
+  border-left: 1px dashed black;
+  width: 1px;
+}
+
+.dragging-element__horizontal-line {
+  left: 0;
+  border-bottom: 1px dashed black;
+  height: 1px;
+}
+
 .line__label {
   display: inline-block;
   position: absolute;
+  pointer-events: none;
 
   width: 80px;
 }
