@@ -47,7 +47,7 @@ document.addEventListener('mousemove', event => {
   draggingVerticalLine.style.left = rect + 'px';
   draggingVerticalLine.style.top = topSimulatedCover + 'px';
   draggingVerticalLine.style.height = rect.top - topSimulatedCover + 'px';
-  draggingVerticalLine.childNodes[1].innerHTML = 'rect.top/y:' + (rect.top - topSimulatedCover);
+  draggingVerticalLine.childNodes[1].innerHTML = '--rect.top/y:' + (rect.top - topSimulatedCover);
 
   draggingHorizontalLine.style.top = rect.top + 'px';
   draggingHorizontalLine.style.width = rect.left + 'px';
@@ -61,7 +61,7 @@ document.addEventListener('scroll', event => {
   const draggingHeight = draggingTop - topSimulatedCover - scroll;
   draggingVerticalLine.style.height = draggingHeight + 'px';
   draggingHorizontalLine.style.top = draggingTop - scroll + 'px';
-  draggingVerticalLine.childNodes[1].innerHTML = draggingHeight < 0 ? '' : 'rect.top/y:' + draggingHeight;
+  draggingVerticalLine.childNodes[1].innerHTML = draggingHeight < 0 ? '' : '--rect.top/y:' + draggingHeight;
 
   scrollY.innerHTML = 'scrollY:' + (topSimulatedCover + scroll);
 })
@@ -73,6 +73,8 @@ let y = 0;
 
 const mouseDownHandler = function(e) {
   e.preventDefault();
+
+  window.scrollTo(0, 0);
   // Calculate the mouse position
   const rect = draggingEl.getBoundingClientRect();
   x = e.pageX - rect.left;

@@ -5,6 +5,7 @@ html {
 
 body {
   height: 200vh;
+  scroll-behavior: smooth;
   margin: 0;
 }
 
@@ -109,6 +110,11 @@ main {
   top: 0;
   border-left: 1px dashed black;
   width: 1px;
+}
+
+.dragging-element__vertical-line > .line__label {
+  transform: translateY(-50%);
+  width: 100px;
 }
 
 .dragging-element__horizontal-line {
