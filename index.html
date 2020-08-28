@@ -9,14 +9,21 @@
 <body>
   <main>
     <div class="app__cover app__cover--top">
-      Your covered webpage by scrolling area.
+      Your covered webpage by scrolling area
     </div>
     <div class="app__text-box">
-      Your Browser window area.
+      Your Browser window area
     </div>
     <div class="app__dragging-element">
-      <div class="app__line dragging-element__vertical-line"></div>
-      <div class="app__line dragging-element__horizontal-line"></div>
+      Drag me slowly!
+      <br />
+      const rect = el.getBoundingClientRect();
+      <div class="app__line dragging-element__vertical-line">
+        <div class="line__label"></div>
+      </div>
+      <div class="app__line dragging-element__horizontal-line">
+        <div class="line__label"></div>
+      </div>
     </div>
   </main>
 

@@ -2,13 +2,13 @@ const horizontalLine = document.querySelector('.app__line--horizontal');
 const verticalLine = document.querySelector('.app__line--vertical');
 
 const draggingEl = document.querySelector('.app__dragging-element');
-const draggingVerticalLine = draggingEl.childNodes[1];
-const draggingHorizontalLine = draggingEl.childNodes[3];
+const draggingVerticalLine = draggingEl.childNodes[3];
+const draggingHorizontalLine = draggingEl.childNodes[5];
 
 let PageY = 0;
 let ClientY = 0;
-
 let draggingTop = 0;
+const topSimulatedCover = 100;
 
 document.addEventListener('mousemove', event => {
   const { clientX, clientY, pageX, pageY } = event;
@@ -17,32 +17,36 @@ document.addEventListener('mousemove', event => {
   ClientY = clientY;
 
 
-  horizontalLine.style.top = clientY < 100 ? clientY: clientY + 'px';
+  horizontalLine.style.top = clientY < topSimulatedCover ? clientY: clientY + 'px';
   horizontalLine.style.width = clientX + 'px';
-  horizontalLine.childNodes[1].innerHTML = 'pageX:' + pageX;
+  horizontalLine.childNodes[1].innerHTML = 'e.pageX:' + pageX;
 
   verticalLine.style.left = clientX + 'px';
-  verticalLine.style.height = clientY < 100 ? clientY: clientY + 'px';
-  verticalLine.childNodes[1].innerHTML = 'pageY:' + PageY;
-  verticalLine.childNodes[3].innerHTML = '--clientY:' + (clientY - 100);
+  verticalLine.style.height = clientY < topSimulatedCover ? clientY: clientY + 'px';
+  verticalLine.childNodes[1].innerHTML = 'e.pageY:' + PageY;
+  verticalLine.childNodes[3].innerHTML = '-- e.clientY:' + (clientY - topSimulatedCover);
 
 
   const rect = draggingEl.getBoundingClientRect();
   draggingTop = rect.top
 
   draggingVerticalLine.style.left = rect + 'px';
-  draggingVerticalLine.style.height = rect.top + 'px';
+  draggingVerticalLine.style.top = topSimulatedCover + 'px';
+  draggingVerticalLine.style.height = rect.top - topSimulatedCover + 'px';
+  draggingVerticalLine.childNodes[1].innerHTML = 'rect.top/y:' + (rect.top - topSimulatedCover);
+
   draggingHorizontalLine.style.top = rect.top + 'px';
   draggingHorizontalLine.style.width = rect.left + 'px';
+  draggingHorizontalLine.childNodes[1].innerHTML = 'rect.left/x:' + rect.left;
 })
 
 document.addEventListener('scroll', event => {
   const scroll = this.scrollY;
   verticalLine.childNodes[1].innerHTML = 'pageY:' + (ClientY + scroll);
 
-  draggingVerticalLine.style.height = draggingTop - scroll + 'px';
+  draggingVerticalLine.style.height = draggingTop - topSimulatedCover - scroll + 'px';
   draggingHorizontalLine.style.top = draggingTop - scroll + 'px';
-
+  draggingVerticalLine.childNodes[1].innerHTML = 'rect.top/y:' + (draggingTop - topSimulatedCover - scroll);
 
 })
 
@@ -67,7 +71,7 @@ const mouseMoveHandler = function(e) {
   e.preventDefault();
   // Set position for dragging element
   draggingEl.style.position = 'absolute';
-  draggingEl.style.top = `${e.pageY - y}px`; 
+  draggingEl.style.top = e.pageY - y < topSimulatedCover ? x :  `${e.pageY - y}px`; 
   draggingEl.style.left = `${e.pageX - x}px`;
 };
 
