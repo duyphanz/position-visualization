@@ -13,6 +13,7 @@ const verticalLine = document.querySelector('.app__line--vertical');
 const draggingEl = document.querySelector('.app__dragging-element');
 const draggingVerticalLine = draggingEl.childNodes[3];
 const draggingHorizontalLine = draggingEl.childNodes[5];
+const draggingDimensions = draggingEl.childNodes[7];
 
 const scrollY = document.querySelector('.app__scroll-label');
 const innerHeight = document.querySelector('.inner-height__label');
@@ -79,6 +80,10 @@ const mouseDownHandler = function(e) {
   const rect = draggingEl.getBoundingClientRect();
   x = e.pageX - rect.left;
   y = e.pageY - rect.top;
+
+  console.log(draggingDimensions)
+
+  draggingDimensions.innerHTML = 'rect.width:' + rect.width + ', rect.height: ' + rect.height;
 
   // Attach the listeners to `document`
   draggingEl.addEventListener('mousemove', mouseMoveHandler);
