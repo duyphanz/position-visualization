@@ -13,13 +13,7 @@ main {
   background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
-.app__text-box {
-  position: fixed;
-  width: 100%;
-  text-align: right;
-  top: 110px;;
-}
-
+/* simulate scrolling area */
 .app__cover {
   height: 100px;
   width: 100%;
@@ -51,6 +45,9 @@ main {
   margin-left: 10px;
 }
 
+/* end simulate scrolling area */
+
+/* mousemove event dimensions */
 .app__line {
   position: fixed;
 }
@@ -69,6 +66,9 @@ main {
   left: 200px;
 }
 
+/* end mousemove event dimensions */
+
+/* dragging element  */
 .app__dragging-element {
   width: 300px;
   height: 100px;
@@ -100,6 +100,15 @@ main {
   height: 1px;
 }
 
+/* end dragging element  */
+
+.app__text-box {
+  position: fixed;
+  width: 100%;
+  text-align: right;
+  top: 110px;;
+}
+
 .line__label {
   display: inline-block;
   position: absolute;
@@ -129,7 +138,7 @@ main {
 
 .app_inner-height > .inner-height__label {
   writing-mode: vertical-lr;
-  text-orientation: vertical-rl;
+  text-orientation: mixed;
   height: calc(100% - 120px);
   text-align: right;
 }
