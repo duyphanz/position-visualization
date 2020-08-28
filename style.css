@@ -48,8 +48,7 @@ main {
   height: 100px;
   width: 100%;
   background-color:rgba(0, 0, 0, 0.2);
-  opacity: 0.5;
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
 
   position: fixed;
   left: 50%;
@@ -59,6 +58,20 @@ main {
 .app__cover--top {
   text-align: right;
   top: 0;
+}
+
+.app__cover--top > .app__scroll-label {
+  color: black;
+  text-align: left;
+  border-left: 1px dashed black;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
 }
 
 .app__line {

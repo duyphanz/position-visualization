@@ -1,9 +1,13 @@
+// lines of mousemove event
 const horizontalLine = document.querySelector('.app__line--horizontal');
 const verticalLine = document.querySelector('.app__line--vertical');
 
+// lines of dragging element
 const draggingEl = document.querySelector('.app__dragging-element');
 const draggingVerticalLine = draggingEl.childNodes[3];
 const draggingHorizontalLine = draggingEl.childNodes[5];
+
+const scrollY = document.querySelector('.app__scroll-label');
 
 let PageY = 0;
 let ClientY = 0;
@@ -49,6 +53,7 @@ document.addEventListener('scroll', event => {
   draggingHorizontalLine.style.top = draggingTop - scroll + 'px';
   draggingVerticalLine.childNodes[1].innerHTML = draggingHeight < 0 ? '' : 'rect.top/y:' + draggingHeight;
 
+  scrollY.innerHTML = 'scrollY:' + (topSimulatedCover + scroll);
 })
 
 
