@@ -44,9 +44,10 @@ document.addEventListener('scroll', event => {
   const scroll = this.scrollY;
   verticalLine.childNodes[1].innerHTML = 'pageY:' + (ClientY + scroll);
 
-  draggingVerticalLine.style.height = draggingTop - topSimulatedCover - scroll + 'px';
+  const draggingHeight = draggingTop - topSimulatedCover - scroll;
+  draggingVerticalLine.style.height = draggingHeight + 'px';
   draggingHorizontalLine.style.top = draggingTop - scroll + 'px';
-  draggingVerticalLine.childNodes[1].innerHTML = 'rect.top/y:' + (draggingTop - topSimulatedCover - scroll);
+  draggingVerticalLine.childNodes[1].innerHTML = draggingHeight < 0 ? '' : 'rect.top/y:' + draggingHeight;
 
 })
 
