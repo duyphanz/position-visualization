@@ -1,3 +1,10 @@
+
+// variables
+let PageY = 0;
+let ClientY = 0;
+let draggingTop = 0;
+const topSimulatedCover = 100;
+
 // lines of mousemove event
 const horizontalLine = document.querySelector('.app__line--horizontal');
 const verticalLine = document.querySelector('.app__line--vertical');
@@ -8,11 +15,14 @@ const draggingVerticalLine = draggingEl.childNodes[3];
 const draggingHorizontalLine = draggingEl.childNodes[5];
 
 const scrollY = document.querySelector('.app__scroll-label');
+const innerHeight = document.querySelector('.inner-height__label');
+innerHeight.innerHTML = 'window.innerHeight: ' + (window.innerHeight - topSimulatedCover);
 
-let PageY = 0;
-let ClientY = 0;
-let draggingTop = 0;
-const topSimulatedCover = 100;
+
+
+window.addEventListener('resize', event => {
+  innerHeight.innerHTML = 'window.innerHeight: ' + (window.innerHeight - topSimulatedCover);
+})
 
 document.addEventListener('mousemove', event => {
   const { clientX, clientY, pageX, pageY } = event;
