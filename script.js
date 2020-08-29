@@ -76,9 +76,9 @@ document.addEventListener('scroll', event => {
   const draggingHeight = draggingTop - topSimulatedCover - scroll;
   const draggingHeightBottom = draggingBottom - topSimulatedCover - scroll;
 
-  draggingVerticalLine.style.height = draggingHeight + 'px';
+  draggingVerticalLine.style.height = draggingHeight < 0 ? 0 :  draggingHeight + 'px';
   draggingVerticalLine.childNodes[1].innerHTML = draggingHeight < 0 ? '' : '--rect.top/y:' + draggingHeight;
-  draggingVerticalLineBottom.style.height = draggingHeightBottom + 'px';
+  draggingVerticalLineBottom.style.height =draggingHeight < 0 ? 0 : draggingHeightBottom + 'px';
   draggingVerticalLineBottom.childNodes[1].innerHTML = draggingHeightBottom < 0 ? '' : '--rect.bottom:' + draggingHeightBottom;
 
 
