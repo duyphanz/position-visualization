@@ -56,6 +56,7 @@ main {
 /* mousemove event dimensions */
 .app__line {
   position: fixed;
+  pointer-events: none;
 }
 
 .app__line--horizontal {
@@ -93,25 +94,29 @@ main {
 
 .app__dragging-element > .dragging-element__dimensions {
   color: black;
+  pointer-events: none;
 }
 
-.dragging-element__vertical-line {
+.dragging-element__vertical-line, .dragging-element__vertical-line-bottom {
   top: 0;
   border-left: 1px dashed black;
   width: 1px;
+  pointer-events: none;
 }
 
-.dragging-element__vertical-line > .line__label {
+.dragging-element__vertical-line > .line__label,  .dragging-element__vertical-line-bottom > .line__label {
   color: black;
   transform: translateY(-50%);
-  width: 100px;
+  width: 120px;
+  pointer-events: none;
 }
 
-.dragging-element__horizontal-line {
+.dragging-element__horizontal-line, .dragging-element__horizontal-line-right {
   left: 0;
   border-bottom: 1px dashed black;
   color: black;
   height: 1px;
+  pointer-events: none;
 }
 
 /* end dragging element  */

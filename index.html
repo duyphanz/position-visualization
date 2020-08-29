@@ -20,13 +20,24 @@
       Drag me slowly!
       <br />
       const rect = el.getBoundingClientRect();
+
+      <!-- top/left -->
       <div class="app__line dragging-element__vertical-line">
         <div class="line__label"></div>
       </div>
       <div class="app__line dragging-element__horizontal-line">
         <div class="line__label"></div>
       </div>
-      <div class="dragging-element__dimensions"></div>    
+      <!-- width/height info -->
+      <div class="dragging-element__dimensions"></div>   
+
+      <!-- bottom/right -->
+      <div class="app__line dragging-element__vertical-line-bottom">
+        <div class="line__label"></div>
+      </div>
+      <div class="app__line dragging-element__horizontal-line-right">
+        <div class="line__label"></div>
+      </div>
     </div>
   </main>
 
